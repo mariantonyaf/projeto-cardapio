@@ -129,11 +129,11 @@ addressInput.addEventListener("input", function(event){
 
 // FINALIZAR CARRINHO 
 checkoutBtn.addEventListener("click", function(){
-    const isOpen = checkResOpen()
+    /*const isOpen = checkResOpen()
     if(!isOpen){
         alert("RESTAURANTE FECHADO NO MOMENTO!")
         return
-    }
+    }*/
 
     if(cart.length === 0) return
     if(addressInput.value === ""){
@@ -141,6 +141,18 @@ checkoutBtn.addEventListener("click", function(){
         addressInput.classList.add("border-red-500")
         return
     }
+
+    // ENVIAR O PEDIDO PARA API WPP
+    const cartItems = cart.map((item) => {
+        return (
+            `${item.name} Quantidade: (${item.quantify}) Preço: ${item.price} |`
+        )
+    }).join("")
+
+    const message = encodeURIComponent(cartItems)
+    const phone = "27996504704"
+
+    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
 })
 
 // VERIFICAR A HORA E MANIPULAR O CARD HORARIO

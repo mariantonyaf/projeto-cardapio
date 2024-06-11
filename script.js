@@ -8,3 +8,20 @@ const closeModalBtn = document.getElementById("close-modal-btn")
 const cartCount = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
+
+// ABRIR O MODAL DO CARRINHO
+cartBtn.addEventListener("click", function(){
+    cartModal.style.display = "flex"
+})
+
+// FECHAR O MODAL QUANDO CLICAR FORA
+cartModal.addEventListener("click", function(event){
+    if(event.target === cartModal){
+        cartModal.style.display = "none"
+    }
+})
+
+// FECHAR O MODAL NO BOTÃO 'FECHAR'
+closeModalBtn.addEventListener("click", function(){
+    cartModal.style.display = "none"
+})

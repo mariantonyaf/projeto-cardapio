@@ -129,6 +129,10 @@ addressInput.addEventListener("input", function(event){
 
 // FINALIZAR CARRINHO 
 checkoutBtn.addEventListener("click", function(){
+    const isOpen = checkResOpen()
+    if(!isOpen){
+        alert("RESTAURANTE FECHADO NO MOMENTO!")
+    }
     if(cart.length === 0) return
     if(addressInput.value === ""){
         addressWarn.classList.remove("hidden")
@@ -136,3 +140,23 @@ checkoutBtn.addEventListener("click", function(){
         return
     }
 })
+
+// VERIFICAR A HORA E MANIPULAR O CARD HORARIO
+function checkResOpen(){
+    const data = new Date()
+    const hora = data.getHours()
+
+    return hora >= 18 && hora < 22
+    // TRUE = REST ESTA ABERTO
+}
+
+const spanItem = document.getElementById("date-span")
+const isOpen = checkResOpen()
+
+if(isOpen){
+    spanItem.classList.remove("bg-red-500")
+    spanItem.classList.add("bg-green-600")
+} else{
+    spanItem.classList.remove("bg-green-600")
+    spanItem.classList.add("bg-red-500")
+}

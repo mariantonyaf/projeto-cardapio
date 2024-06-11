@@ -132,7 +132,9 @@ checkoutBtn.addEventListener("click", function(){
     const isOpen = checkResOpen()
     if(!isOpen){
         alert("RESTAURANTE FECHADO NO MOMENTO!")
+        return
     }
+
     if(cart.length === 0) return
     if(addressInput.value === ""){
         addressWarn.classList.remove("hidden")

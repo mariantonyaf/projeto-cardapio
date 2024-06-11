@@ -88,4 +88,6 @@ function updateCartModal(){
         style: "currency",
         currency: "BRL"
     })
+
+    cartCount.innerHTML = cart.length
 }

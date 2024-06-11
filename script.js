@@ -57,6 +57,29 @@ function addToCart(name, price){
 }
 
 // ATUALIZA O CARRINHO
-function updateCartModal{
-    
+function updateCartModal(){
+    cartItemsContainer.innerHTML = ""
+    let total = 0
+
+    cart.forEach(item => {
+        const cartItemsElement = document.createElement("div")
+
+        cartItemsElement.innerHTML = `
+        <div>
+            <div>
+                <p>${item.name}</p>
+                <p>${item.quantify}</p>
+                <p>R$ ${item.price}</p>
+            </div>
+
+            <div>
+                <button>
+                    Remover
+                </button>
+            </div>
+        </div>
+        `
+
+        cartItemsContainer.appendChild(cartItemsElement)
+    })
 }

@@ -25,3 +25,13 @@ cartModal.addEventListener("click", function(event){
 closeModalBtn.addEventListener("click", function(){
     cartModal.style.display = "none"
 })
+
+// ADICIONAR ITENS AO CARRINHO
+menu.addEventListener("click", function(event){
+    let parentButton = event.target.closest(".add-to-cart-btn")
+    
+    if(parentButton){
+        const name = parentButton.getAttribute("data-name")
+        const price = parentButton.getAttribute("data-price")
+    }
+})

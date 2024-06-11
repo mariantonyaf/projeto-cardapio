@@ -153,6 +153,9 @@ checkoutBtn.addEventListener("click", function(){
     const phone = "27996504704"
 
     window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+
+    cart = []
+    updateCartModal()
 })
 
 // VERIFICAR A HORA E MANIPULAR O CARD HORARIO

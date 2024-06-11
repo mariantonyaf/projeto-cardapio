@@ -46,10 +46,17 @@ function addToCart(name, price){
 
     if(existingItem){
         // SE O ITEM JA EXISTE, AUMENTA APENAS A QUANTIDADE
-        
+        existingItem.quantify += 1
+    } else{
+        cart.push({
+            name, price, quantify: 1,
+        })
     }
 
-    cart.push({
-        name, price, quantify: 1,
-    })
+    updateCartModal()
+}
+
+// ATUALIZA O CARRINHO
+function updateCartModal{
+    
 }
